@@ -5,21 +5,22 @@ import threading
 import numpy
 import numpy as np
 
+def set_height(heights, parents, i):
+     if heights[i] != 0:
+            return heights[i]
+        if parents[i] == -1:
+            heights[i] = 1
+        else:
+            heights[i] = set_height(heights, parents, parents[i])+1
+        return heights[i]
+
 
 def compute_height(num_nodes, parents):
-    parent = np.zeros(num_nodes)
-    
-    def height(i):
-        if parent[i] != 0:
-            return parent[i]
-        if parents[i] == -1:
-            parent[i] = 1
-        else:
-            parent[i] = height(parents[i])+1
-        return parent[i]
-        
+    heights = np.zeros(num_nodes)    
     for i in range(num_nodes):
-        height(i)
+        set_height(heights, parents,i)
+        
+    max_height = int(max(heights))
     return int(max(parent))
 
 def main():
