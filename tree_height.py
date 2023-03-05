@@ -14,8 +14,7 @@ def compute_height(n, parents):
             continue
             
         height = 1
-        parent = parents[i]
-        
+        parent = parents[i]        
         while parent != -1:
             if heights[parent] != -1:
                 height += heights[parent]
@@ -26,11 +25,7 @@ def compute_height(n, parents):
          
         heights[i] = height
         if height > max_height:
-            max_height = height
-            
-    if max_height == 1:
-        max_height = 0
-        
+            max_height = height        
     return max_height        
      
     
@@ -52,7 +47,8 @@ def main():
     else:
         try:
             n = int(input())
-            parents = list(map(int, input().split()))
+            s = input().strip()
+            parents = [int(x) for x in s]
         except:
             return
         
