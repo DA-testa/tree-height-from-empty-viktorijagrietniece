@@ -6,13 +6,13 @@ import numpy
 import numpy as np
 
 def set_height(heights, parents, i):
-     if heights[i] != 0:
-            return heights[i]
-     if parents[i] == -1:
-         heights[i] = 1
-     else:
-         heights[i] = set_height(heights, parents, parents[i])+1
-     return heights[i]
+    if heights[i] != 0:
+        return heights[i]
+    if parents[i] == -1:
+        heights[i] = 1
+    else:
+        heights[i] = set_height(heights, parents, parents[i])+1
+    return heights[i]
 
 
 def compute_height(num_nodes, parents):
