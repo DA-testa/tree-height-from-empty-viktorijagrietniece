@@ -21,20 +21,20 @@ def compute_height(num_nodes, parents):
 
 
 def main():
-    n = 0
-    parentOfNode = []
     letter = input()
-    if letter == "F":
+    if "F" in letter:
         filename = input()
         if "a" not in filename:
             with open('inputs/' + filename, 'r') as f:
                 n = int(f.readline())
                 parentOfNode = list(map(int, f.readline().split()))
         else:
-            return
-    elif letter == "I":
+            print("error")
+    elif "I" in letter:
         n = int(input())
-        parentOfNode = list(map(int, input().split()))
+        parentOfNode = list(map(int, input().split
+    else: 
+        print("invalid letter.")
     print(compute_height(n, parentOfNode))
    
 sys.setrecursionlimit(10**7)  # max depth of recursion
