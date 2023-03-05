@@ -36,11 +36,11 @@ def main():
         letter = input()
         if letter == "F":
             filename = input()
-            if filename and "a" not in filename:
+            try:
                 with open('inputs/' + filename, 'r') as f:
                     n = int(f.readline())
                     parents = list(map(int, f.readline().split()))
-            else:
+            except FileNotFoundError:
                 return
         elif letter == "I":
             n = int(input())
