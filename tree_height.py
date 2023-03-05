@@ -22,6 +22,8 @@ def compute_height(num_nodes, parents):
     return int(max(parent))
 
 def main():
+    n = 0
+    parentOfNode = []
     letter = input()
     if letter == "F":
         filename = input()
@@ -34,7 +36,6 @@ def main():
     elif letter == "I":
         n = int(input())
         parentOfNode = list(map(int, input().split()))
-    else:  
         print(compute_height(n, parentOfNode))
    
 sys.setrecursionlimit(10**7)  # max depth of recursion
