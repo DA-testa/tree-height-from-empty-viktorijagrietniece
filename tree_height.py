@@ -28,7 +28,7 @@ def main():
            with open('inputs/' + filename, 'r') as f:
                n = int(f.readline())
                parents = list(map(int, f.readline().split()))
-        else:
+       else:
             return
     elif letter == "I":
         n = int(input())
