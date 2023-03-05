@@ -21,7 +21,7 @@ def compute_height(n, parents):
                 break
             else:
                 height += 1
-                parents = parents[parent]
+                parent = parents[parent]
          
         heights[i] = height
         if height > max_height:
@@ -47,7 +47,7 @@ def main():
     else:
         try:
             n = int(input())
-            parents = list(map(int, input()))
+            parents = list(map(int, input().split()))
         except:
             return
         
