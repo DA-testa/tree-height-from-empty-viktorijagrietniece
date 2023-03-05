@@ -6,27 +6,19 @@ import numpy
 
 
 def compute_height(n, parents):
-    heights = [0] * n
-    max_height = 0
-
-    
-    def compute_height_from_parent(parent):
-        if heights[parent] > 0:
-            return heights[parent]
+    parent = numpy.zeros(n)
+    def height(i):
+        if parent[i] != 0:
+            return parent[i]
+        if parents[i] == -1:
+            parent[i] = 1
         else:
-            height = compute_height_from_parent(parents[parent]) + 1
-            heights[parent] = height
-            return height
-    
+            parent[i] = height(parents[i])+1
+        return parent[i]
+        
     for i in range(n):
-        parent = parents[i]
-        if parent == -1:
-            height = 1
-        else:
-            height = compute_height_from_parent(parent, heights) + 1
-        heights[i] = height
-        max_height = max(max_height, height)
-    return max_height
+        height(i)
+    return int(max(parent))
     
     # Write this function
     # max_height = 0
