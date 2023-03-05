@@ -9,24 +9,23 @@ def compute_height(n, parents):
     heights = [-1] * n
     max_height = 0
     
-    for i in range(n):
+    def get_height(i):
         if heights[i] != -1:
-            continue
+            return height[1]
             
         height = 1
         parent = parents[i]        
-        while parent != -1:
-            if heights[parent] != -1:
-                height += heights[parent]
-                break
-            else:
-                height += 1
-                parent = parents[parent]
-         
+        if parent == -1:
+            height = 1
+        else:
+            height += get_height(parent)
         heights[i] = height
-        if height > max_height:
-            max_height = height        
-    return max_height        
+        
+        return height
+        
+    for i in range(n):
+        max_height = max(max_height, get_height(i))
+    return max_height
      
     
     # Write this function
