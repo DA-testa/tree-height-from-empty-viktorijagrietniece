@@ -6,7 +6,7 @@ import numpy
 
 
 def compute_height(num_nodes, parents):
-    parent = numpy.zeros(num_nodes)
+    parent = numpy.full(num_nodes, -1)
     
     def height(i):
         if parent[i] != 0:
