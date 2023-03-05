@@ -12,6 +12,7 @@ def compute_height(num_nodes, parents):
     for i in range(num_nodes):
         if parents[i] == -1:
             root = i
+            break
         else:
             parent[i] = parents[i]
     
