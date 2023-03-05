@@ -6,27 +6,18 @@ import numpy
 
 
 def compute_height(n, parents):
-    heights = [-1] * n
+    heights = [0] * n
     max_height = 0
     
-    def get_height(i):
-        if heights[i] != -1:
-            return heights[i]
-            
-        height = 1
-        parent = parents[i]        
+    for i in range(n):
+        parent = parents[i]
         if parent == -1:
             height = 1
         else:
-            height += get_height(parent)
+            height = height[parent] + 1
         heights[i] = height
-        
-        return height
-        
-    for i in range(n):
-        max_height = max(max_height, get_height(i))
+        max_height = max(max_height, height)
     return max_height
-     
     
     # Write this function
     # max_height = 0
@@ -47,17 +38,14 @@ def main():
         try:
             n = int(input())
             s = input().strip()
-            parents = [int(x) for x in s]
+            parents = [int(x) for x in s.split()]
         except:
             return
         
        
     print(compute_height(n, parents))
 
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-# print(numpy.array([1,2,3]))
+
