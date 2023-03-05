@@ -32,23 +32,25 @@ def compute_height(num_nodes, parents):
 def main():
     n = 0
     parents = []
-    letter = input()
-    if letter == "F":
-       filename = input()
-       if filename and "a" not in filename:
-           with open('inputs/' + filename, 'r') as f:
-               n = int(f.readline())
-               parents = list(map(int, f.readline().split()))
-       else:
-            return
-    elif letter == "I":
-        n = int(input())
-        parents = list(map(int, input().split()))
-    else:  
-        n = int(input())
+    try:        
+        letter = input()
+        if letter == "F":
+            filename = input()
+            if filename and "a" not in filename:
+                with open('inputs/' + filename, 'r') as f:
+                    n = int(f.readline())
+                    parents = list(map(int, f.readline().split()))
+            else:
+                return
+        elif letter == "I":
+            n = int(input())
+            parents = list(map(int, input().split()))
+        else:  
+            n = int(input())
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
-
+    except EOFError:
+        pass
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
