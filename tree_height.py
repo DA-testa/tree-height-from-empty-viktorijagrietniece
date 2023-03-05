@@ -3,10 +3,11 @@
 import sys
 import threading
 import numpy
+import numpy as np
 
 
 def compute_height(num_nodes, parents):
-    parent = numpy.zeros(num_nodes, dtype=int)-1
+    parent = np.zeros(num_nodes)
     
     def height(i):
         if parent[i] != 0:
