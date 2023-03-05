@@ -20,7 +20,7 @@ def compute_height(num_nodes, parents):
     for i in range(num_nodes):
         set_height(heights, parents,i)
         
-    max_height = int(max(heights))
+    max_height = int(max(heights, default=0))
     return max_height
 
 
