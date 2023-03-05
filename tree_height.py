@@ -32,7 +32,7 @@ def main():
             print("error")
     elif "I" in letter:
         n = int(input())
-        parentOfNode = list(map(int, input().split
+        parentOfNode = list(map(int, input().split()))
     else: 
         print("invalid letter.")
     print(compute_height(n, parentOfNode))
