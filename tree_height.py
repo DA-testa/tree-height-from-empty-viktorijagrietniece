@@ -7,14 +7,21 @@ import numpy
 
 def compute_height(num_nodes, parents):
     parent = [-1] * num_nodes
+    root = -1
+    
+    for i in range(num_nodes):
+        if parents[i] == -1:
+            root = i
+        else:
+            parent[i] = parents[i]
     
     def height(i):
-        if parent[i] != 0:
+        if parent[i] != -1:
             return parent[i]
-        if parents[i] == -1:
+        if i == root:
             parent[i] = 1
         else:
-            parent[i] = height(parents[i])+1
+            parent[i] = height(parent[i])+1
         return parent[i]
         
     for i in range(num_nodes):
