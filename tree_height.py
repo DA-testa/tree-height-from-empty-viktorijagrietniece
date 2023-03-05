@@ -25,7 +25,7 @@ def main():
     if "F" in letter:
         filename = input()
         if "a" not in filename:
-            with open('inputs/' + filename, 'r') as f:
+            with open(str("test/"+filename), letter = "r") as f:
                 n = int(f.readline())
                 parentOfNode = list(map(int, f.readline().split()))
         else:
