@@ -22,6 +22,7 @@ def compute_height(num_nodes, parents):
 
 def main():
     n = 0
+    parents = []
     letter = input()
     if letter == "F":
        filename = input()
