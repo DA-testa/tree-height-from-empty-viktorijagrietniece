@@ -45,6 +45,8 @@ def main():
         n = int(input())
         parents = list(map(int, input().split()))
     else:  
+        n = int(input())
+        parents = list(map(int, input().split))
         print(compute_height(n, parents))
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
