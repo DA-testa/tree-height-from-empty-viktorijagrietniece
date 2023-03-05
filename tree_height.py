@@ -9,7 +9,7 @@ def compute_height(num_nodes, parents):
     parent = numpy.zeros(num_nodes)
     
     def height(i):
-        if parent[i] != -0:
+        if parent[i] != 0:
             return parent[i]
         if parents[i] == -1:
             parent[i] = 1
@@ -33,7 +33,7 @@ def main():
             return
     elif letter == "I":
         n = int(input())
-        parents = list(map(int, input().split()))
+        parentOfNode = list(map(int, input().split()))
     else:  
         print(compute_height(n, parentOfNode))
    
