@@ -44,7 +44,7 @@ def main():
                 parents = list(map(int, f.readline().split()))
         except:
             return
-     else:
+    else:
         try:
             n = int(input())
             parents = list(map(int, input()))
