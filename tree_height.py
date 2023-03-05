@@ -7,13 +7,14 @@ import numpy
 
 def compute_height(n, parents):
     heights = [0] * n
+    max_height = 0
 
     
-    def compute_height_from_parent(parent, heights):
+    def compute_height_from_parent(parent):
         if heights[parent] > 0:
             return heights[parent]
         else:
-            height = compute_height_from_parent(parents[parent], heights) + 1
+            height = compute_height_from_parent(parents[parent]) + 1
             heights[parent] = height
             return height
     
@@ -47,10 +48,9 @@ def main():
             n = int(input())
             s = input().strip()
             parents = [int(x) for x in s.split()]
-        except:
+        except ValueError:
             return
         
-       
     print(compute_height(n, parents))
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
