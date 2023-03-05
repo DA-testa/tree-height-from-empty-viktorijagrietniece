@@ -15,6 +15,7 @@ def compute_height(n, parents):
             
         height = 1
         parent = parents[i]
+        
         while parent != -1:
             if heights[parent] != -1:
                 height += heights[parent]
@@ -26,6 +27,10 @@ def compute_height(n, parents):
         heights[i] = height
         if height > max_height:
             max_height = height
+            
+    if max_height == 1:
+        max_height = 0
+        
     return max_height        
      
     
