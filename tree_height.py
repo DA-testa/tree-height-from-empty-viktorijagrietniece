@@ -7,14 +7,14 @@ import numpy
 
 def compute_height(n, parents):
     heights = [0] * n
-    max_height = 0
+
     
     def compute_height_from_parent(parent, heights):
         if heights[parent] > 0:
             return heights[parent]
         else:
             height = compute_height_from_parent(parents[parent], heights) + 1
-            height[parent] = height
+            heights[parent] = height
             return height
     
     for i in range(n):
