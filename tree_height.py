@@ -5,8 +5,8 @@ import threading
 import numpy
 
 
-def compute_height(n, parents):
-    parent = numpy.zeros(n)
+def compute_height(num_nodes, parents):
+    parent = numpy.zeros(num_nodes)
     def height(i):
         if parent[i] != 0:
             return parent[i]
@@ -16,7 +16,7 @@ def compute_height(n, parents):
             parent[i] = height(parents[i])+1
         return parent[i]
         
-    for i in range(n):
+    for i in range(num_nodes):
         height(i)
     return int(max(parent))
 
